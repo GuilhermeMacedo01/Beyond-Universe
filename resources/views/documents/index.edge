@@ -1,0 +1,14 @@
+@layout('layout/main')
+@set('title', 'Documents')
+@set('subtitle', 'List:')
+
+@section('body')
+  <ul>
+     @each(document in documents)
+      <li>
+        @set('id', 'document.id')
+        <a href= "/documents/{{ document.id}}"> {{document.text}}</a>
+      </li>
+      @end
+  </ul>
+@end
