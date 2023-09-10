@@ -19,16 +19,13 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
+
 
 Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
-Route.get('/login', async ({ view }: HttpContextContract) => {
-  const texto = "Hello World";
-  return view.render('login', {texto})
-})
+Route.get('/login', 'SessionsController.create').as('sessions.create')
 
 Route.group(() =>{
   Route.get('/', 'DocumentsController.index').as('index')

@@ -1,33 +1,25 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import Document from 'App/Models/Document';
 
-let total = 2
-const documents = [
-    {id: 0, 
-    text: 'Hello'
-    },
-    {id: 1, 
-    text: 'Olá Mundo'
-    },
-  ]
 
 export default class DocumentsController {
     
-    public index ({view}: HttpContextContract){
+    public async index ({view, auth}: HttpContextContract){
+        await auth.use('web').authenticate()
+
+        console.log(auth.user!
+            )
+        const documents = await Document.all()
         return view.render('documents/index', {documents: documents});
     }
     public async show({view, params}:  HttpContextContract){
-        const document = documents[params.id]
+        const document = await Document.find(params.id)
         return view.render('documents/show', { document })
     }
-    public store({ request, response }: HttpContextContract){
+    public async store({ request, response }: HttpContextContract){
        const text = request.input('text')
-       const document = {
-        id: total,
-        text: text,
-       }
-       total = total + 1
+       const document = await Document.create( {text} )
 
-       documents.push(document)
        return response.json(document)
     }
 }
