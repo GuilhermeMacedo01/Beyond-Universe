@@ -1,10 +1,10 @@
 @layout('layout/main')
 @set('title', 'Login')
-@set('subtitle', 'List:')
+@set('subtitle', "")
 
 @section('body')
-<form>
-    <input name='login' type='email'>
+<form action='{{ route("sessions.store")}}' method='POST'>
+    <input name='email' type='email'>
     <input name='password' type='password'>
     <button type='submit'>Logar</button>
 </form>

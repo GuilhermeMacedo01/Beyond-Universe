@@ -23,9 +23,11 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', async ({ view }) => {
   return view.render('welcome')
-})
+}).as('index')
 
 Route.get('/login', 'SessionsController.create').as('sessions.create')
+Route.post('/login', 'SessionsController.store').as('sessions.store')
+Route.get('/logout', 'SessionsController.delete').as('sessions.delete')
 
 Route.group(() =>{
   Route.get('/', 'DocumentsController.index').as('index')
@@ -33,4 +35,5 @@ Route.group(() =>{
   Route.post('/', 'DocumentsController.store').as('store')
 })
   .prefix('/documents')
+  .middleware('auth')
   .as('documents')

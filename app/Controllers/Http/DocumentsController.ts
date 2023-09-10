@@ -4,14 +4,11 @@ import Document from 'App/Models/Document';
 
 export default class DocumentsController {
     
-    public async index ({view, auth}: HttpContextContract){
-        await auth.use('web').authenticate()
-
-        console.log(auth.user!
-            )
+    public async index ({view}: HttpContextContract){
         const documents = await Document.all()
         return view.render('documents/index', {documents: documents});
     }
+    
     public async show({view, params}:  HttpContextContract){
         const document = await Document.find(params.id)
         return view.render('documents/show', { document })
