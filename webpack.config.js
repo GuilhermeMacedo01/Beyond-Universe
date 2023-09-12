@@ -1,6 +1,13 @@
 const { join } = require('path')
 const Encore = require('@symfony/webpack-encore')
 
+Encore
+    .setOutputPath('public/build/')
+    .setPublicPath('/build')
+    // (...)
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Encore runtime environment
@@ -202,6 +209,9 @@ config.infrastructureLogging = {
   level: 'warn',
 }
 config.stats = 'errors-warnings'
+
+
+module.exports = config;
 
 /*
 |--------------------------------------------------------------------------
