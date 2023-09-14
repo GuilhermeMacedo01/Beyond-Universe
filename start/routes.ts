@@ -22,12 +22,15 @@ import Route from '@ioc:Adonis/Core/Route'
 
 
 Route.get('/', async ({ view }) => {
-  return view.render('welcome')
+  return view.render('home')
 }).as('index')
 
 Route.get('/login', 'SessionsController.create').as('sessions.create')
 Route.post('/login', 'SessionsController.store').as('sessions.store')
 Route.get('/logout', 'SessionsController.delete').as('sessions.delete')
+
+Route.get('/user', 'UsersController.create').as('users.create')
+Route.post('/user', 'UsersController.store').as('users.store')
 
 Route.group(() =>{
   Route.get('/', 'DocumentsController.index').as('index')
