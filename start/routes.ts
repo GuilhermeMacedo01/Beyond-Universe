@@ -29,8 +29,13 @@ Route.get('/login', 'SessionsController.create').as('sessions.create')
 Route.post('/login', 'SessionsController.store').as('sessions.store')
 Route.get('/logout', 'SessionsController.delete').as('sessions.delete')
 
-Route.get('/user', 'UsersController.create').as('users.create')
+
+Route.get('/user', 'UsersController.index').as('users.create')
+Route.get('/user/:id', 'UsersController.show') .as('users.show')
+Route.delete('/user/:id', 'UsersController.destroy').as('users.destroy')
+Route.patch('/user/:id', 'UsersController.update').as('users.update')
 Route.post('/user', 'UsersController.store').as('users.store')
+
 
 Route.group(() =>{
   Route.get('/', 'DocumentsController.index').as('index')
@@ -40,3 +45,12 @@ Route.group(() =>{
   .prefix('/documents')
   .middleware('auth')
   .as('documents')
+
+ 
+Route.group(() => {
+        Route.get('/', 'PostsController.index')
+        Route.get('/id', 'PostsController.show') 
+        Route.delete('/:id', 'PostsController.destroy')
+        Route.patch('/:id', 'PostsController.update')
+        Route.post('/', 'PostsController.store').as('posts.store')
+    }).prefix('/posts')
