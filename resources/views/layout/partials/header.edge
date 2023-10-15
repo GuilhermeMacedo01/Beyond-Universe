@@ -2,15 +2,16 @@
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="/" class="flex items-center">
-                
+                <img class="w-8 h-8 mr-2" src="https://i.pinimg.com/564x/ed/fb/3d/edfb3d96fe17bfeadbeeee77e308a897.jpg" alt="logo">
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Os Cria.Inc</span>
             </a>
             <div class="flex items-center lg:order-2">
-              
+                
                 @if(!auth.isLoggedIn)
                 <a href="{{ route('sessions.create') }}" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
                   
                 @else
+                {{ auth.user.email }}
                 <a href="{{ route('sessions.delete') }}" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log out</a>
                 @endif
 
