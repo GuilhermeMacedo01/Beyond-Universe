@@ -30,7 +30,7 @@ Route.post('/login', 'SessionsController.store').as('sessions.store')
 Route.get('/logout', 'SessionsController.delete').as('sessions.delete')
 
 
-Route.get('/user', 'UsersController.index').as('users.create')
+Route.get('/user', 'UsersController.create').as('users.create')
 Route.get('/user/:id', 'UsersController.show') .as('users.show')
 Route.delete('/user/:id', 'UsersController.destroy').as('users.destroy')
 Route.patch('/user/:id', 'UsersController.update').as('users.update')
