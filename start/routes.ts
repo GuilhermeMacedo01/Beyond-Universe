@@ -31,6 +31,8 @@ Route.get('/logout', 'SessionsController.delete').as('sessions.delete')
 
 
 Route.get('/user', 'UsersController.create').as('users.create')
+
+Route.get('/users', 'UsersController.index').as('users.index')
 Route.get('/user/:id', 'UsersController.show') .as('users.show')
 Route.delete('/user/:id', 'UsersController.destroy').as('users.destroy')
 Route.patch('/user/:id', 'UsersController.update').as('users.update')
@@ -48,9 +50,13 @@ Route.group(() =>{
 
  
 Route.group(() => {
-        Route.get('/', 'PostsController.index')
-        Route.get('/id', 'PostsController.show') 
-        Route.delete('/:id', 'PostsController.destroy')
-        Route.patch('/:id', 'PostsController.update')
-        Route.post('/', 'PostsController.store').as('posts.store')
-    }).prefix('/posts')
+    Route.get('/', 'PostsController.index').as('index')
+    Route.get('/new', 'PostsController.create').as('create')
+    Route.post('/', 'PostsController.store').as('store')
+    Route.get('/:id/update', 'PostsController.update').as('update')
+    Route.patch('/:id', 'PostsController.patch').as('patch')
+    Route.get('/:id', 'PostsController.show').as('show')
+    })
+    .prefix('/posts')
+    .middleware('auth')
+    .as('posts')

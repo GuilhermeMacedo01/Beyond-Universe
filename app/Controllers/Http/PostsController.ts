@@ -1,56 +1,39 @@
-import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import User from 'App/Models/User'
 import Post from 'App/Models/Post'
+import PostService from 'App/Services/PostService'
+import CreatePostValidator from 'App/Validators/CreatePostValidator'
 
 export default class PostsController {
-    public async index({}: HttpContextContract) {
-        const posts = await Post.all()
-        return posts
-    }
+  public async create({ view }: HttpContextContract) {
+    return view.render('posts/create')
+  }
 
-    public async destroy({ params }: HttpContextContract) {
-        const post = await Post.findOrFail(params.id)
-        await post.delete()
+  public async store({ request, response }: HttpContextContract) {
+    const payload = await request.validate(CreatePostValidator)
 
-        return null
-    }
+    //TODO: Pegar o usuario logado
+    const user = await User.findOrFail(1)
 
-    public async update({ request, params }: HttpContextContract) {
-        const post = await Post.findOrFail(params.id)
+    const postService = new PostService()
+    const post = await postService.create(user, payload)
 
-        const title = request.input('title', undefined)
-        const content = request.input('content', undefined)
+    return response.redirect().toRoute('posts.show', { id: post.id })
+  }
 
-        post.title = title ? title : post.title
-        post.content = content ? content : post.content
+  public async show({ params, view }: HttpContextContract) {
+    const post = await Post.findOrFail(params.id)
 
-        await post.save()
+    await post.load('user')
 
-        return post
-    }
+    return view.render('posts/show', { post: post })
+  }
 
-    public async store({ request, response }: HttpContextContract) {
-        const title = request.input('title', undefined)
-        const content = request.input('content', undefined)
-        const userId = request.input('userId', undefined)
+  public async update({}: HttpContextContract) {}
 
-        if(!title || !content || !userId) {
-            response.status(400)
-            return response
-        }
+  public async patch({}: HttpContextContract) {}
 
-        const post = await Post.create({
-            content,
-            title,
-            userId
-        })
-
-        return post
-    }
-
-    public async show({ params }: HttpContextContract) {
-        const post = await Post.findOrFail(params.id)
-
-        return post
-    }
+  public async index({ view }: HttpContextContract) {
+    return view.render('posts/index')
+  }
 }

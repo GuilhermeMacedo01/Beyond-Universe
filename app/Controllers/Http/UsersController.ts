@@ -1,59 +1,56 @@
-import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import User from   'App/Models/User'
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import User from 'App/Models/User'
+import UserService from 'App/Services/UserService'
 
 export default class UsersController {
+  public async create({ view }: HttpContextContract) {
+    return view.render('users/create')
+  }
 
-    public async index({ }: HttpContextContract) {
-        const users = await User.all()
+  public async store({ request, response }: HttpContextContract) {
+    const email = request.input('email', undefined)
+    const password = request.input('password', undefined)
 
-        return users
-    }
-    public async create({ view }: HttpContextContract){
-        return view.render('users/create')
-    }
-
-    public async destroy({ params }: HttpContextContract) {
-        const user = await User.findOrFail(params.id)
-        await user.delete()
-
-        return null
+    if (!email || !password) {
+      response.status(400)
+      return response
     }
 
+    const userService = new UserService()
+    const user = await userService.create(email, password)
 
-    public async update({ request, params }: HttpContextContract) {
-        const user = await User.findOrFail(params.id)
+    return response.redirect().toRoute('users.show', { id: user.id })
+  }
 
-        const email = request.input('email', undefined)
-        const password = request.input('password', undefined)
+  public async show({ params, view }: HttpContextContract) {
+    const user = await User.findOrFail(params.id)
 
-        user.email = email ? email : user.email
-        user.password = password ? password : user.password
+    return view.render('users/show', { user: user })
+  }
 
-        await user.save()
+  public async update({ params, view }: HttpContextContract) {
+    const user = await User.findOrFail(params.id)
 
-        return user
-    }
+    return view.render('users/update', { user: user })
+  }
 
-    public async store({auth, request, response }: HttpContextContract){
-        const email = request.input('email')
-        const password = request.input('password')
-        const confirm_password = request.input('confirm_password')
+  public async patch({ params, request, response }: HttpContextContract) {
+    const user = await User.findOrFail(params.id)
 
-        if(password != confirm_password){
-            
-            return response.redirect().toRoute('users.create')
-        }
+    const email = request.input('email', undefined)
+    const password = request.input('password', undefined)
 
-        const user = await User.create({ email, password })
+    user.email = email ? email : user.email
+    user.password = password ? password : user.password
 
-        await auth.use('web').login(user)
+    await user.save()
 
-        return response.redirect().toRoute('index')
-    }
+    return response.redirect().toRoute('users.show', { id: user.id })
+  }
 
-    public async show({ params }: HttpContextContract) {
-        const user = await User.findOrFail(params.id)
+  public async index({ view }: HttpContextContract) {
+    const users = await User.all()
 
-        return user
-    }
+    return view.render('users/index', { users: users })
+  }
 }
