@@ -4,6 +4,7 @@ import Post from 'App/Models/Post'
 import PostService from 'App/Services/PostService'
 import CreatePostValidator from 'App/Validators/CreatePostValidator'
 
+
 export default class PostsController {
   public async create({ view }: HttpContextContract) {
     return view.render('posts/create')
@@ -34,6 +35,8 @@ export default class PostsController {
   public async patch({}: HttpContextContract) {}
 
   public async index({ view }: HttpContextContract) {
-    return view.render('posts/index')
+    const posts = await Post.all()
+   
+    return view.render('posts/index', {posts: posts})
   }
 }

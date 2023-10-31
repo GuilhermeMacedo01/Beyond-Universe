@@ -35,18 +35,8 @@ Route.get('/user', 'UsersController.create').as('users.create')
 Route.get('/users', 'UsersController.index').as('users.index')
 Route.get('/user/:id', 'UsersController.show') .as('users.show')
 Route.delete('/user/:id', 'UsersController.destroy').as('users.destroy')
-Route.patch('/user/:id', 'UsersController.update').as('users.update')
+Route.patch('/:id', 'UsersController.update').as('users.update')
 Route.post('/user', 'UsersController.store').as('users.store')
-
-
-Route.group(() =>{
-  Route.get('/', 'DocumentsController.index').as('index')
-  Route.get('/:id', 'DocumentsController.show').as('show')
-  Route.post('/', 'DocumentsController.store').as('store')
-})
-  .prefix('/documents')
-  .middleware('auth')
-  .as('documents')
 
  
 Route.group(() => {

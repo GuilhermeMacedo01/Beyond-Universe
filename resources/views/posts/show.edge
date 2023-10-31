@@ -1,11 +1,19 @@
 @layout('layout/main')
 
-@section('content')
+@section('home')
 
-  {{ post.title }}
 
-  {{ post.content }}
+  <div>
+    <p>Título:</p>
+    {{ post.title }}
+  </div>
 
-  {{ post.user.email }}
+  <div>
+    <p>Conteúdo:</p>
+    {{ post.content }}
+  </div>
 
+  <div>
+    Usuário:{{ post.user.email }}
+  </div>
 @end
