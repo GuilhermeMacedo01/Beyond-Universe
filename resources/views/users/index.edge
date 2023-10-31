@@ -1,11 +1,8 @@
 @layout('layout/simple')
-@set('title', 'Bem-vindo')
-@set('subtitle', "")
 
-<html>
-<head>
-    <title>Rural Medium</title>
-</head>
+
+@section('home')
+
 <body>
     <p>
         Usuários
@@ -26,9 +23,9 @@
             @each(user in users)
                 <tr>
                     <td>
-                        <a href="{{ route('users.show', { id: user.id }) }}">
+                      
                             {{ user.email }}
-                        </a>
+                       
                     </td>
                     <td>
                         <span>
@@ -52,4 +49,5 @@
     
 
 </body>
-</html>
+
+@endsection
