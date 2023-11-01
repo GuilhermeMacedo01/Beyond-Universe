@@ -33,10 +33,12 @@ Route.get('/logout', 'SessionsController.delete').as('sessions.delete')
 Route.get('/user', 'UsersController.create').as('users.create')
 
 Route.get('/users', 'UsersController.index').as('users.index')
-Route.get('/user/:id', 'UsersController.show') .as('users.show')
-Route.delete('/user/:id', 'UsersController.destroy').as('users.destroy')
-Route.patch('/:id', 'UsersController.update').as('users.update')
 Route.post('/user', 'UsersController.store').as('users.store')
+Route.delete('/user/:id', 'UsersController.destroy').as('users.destroy')
+Route.get('/edit/:id', 'UsersController.update').as('users.update')
+Route.post('/edit/:id', 'PostsController.patch').as('users.patch')
+Route.get('/user/:id', 'UsersController.show') .as('users.show')
+
 
  
 Route.group(() => {

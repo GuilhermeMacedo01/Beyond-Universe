@@ -11,7 +11,7 @@ export default class CreatePostValidator extends BaseValidator {
    * Define schema to validate the "shape", "type", "formatting" and "integrity" of data.
    *
    * For example:
-   * 1. The username must be of data type string. But then also, it should
+   * 1. The user_name must be of data type string. But then also, it should
    *    not contain special characters or numbers.
    *    ```
    *     schema.string({}, [ rules.alpha() ])
@@ -45,7 +45,7 @@ export default class CreatePostValidator extends BaseValidator {
    * children of an array. For example:
    *
    * {
-   *   'profile.username.required': 'Username is required',
+   *   'profile.user_name.required': 'user_name is required',
    *   'scores.*.number': 'Define scores as valid numbers'
    * }
    *

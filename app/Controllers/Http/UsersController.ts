@@ -9,18 +9,18 @@ export default class UsersController {
 
   public async store({ request, response }: HttpContextContract) {
 
-    const userName = request.input('userName',undefined)
+    const user_name = request.input('user_name',undefined)
     const email = request.input('email', undefined)
     const password = request.input('password', undefined)
     
 
-    if (!email || !password ||!userName) {
+    if (!email || !password ||!user_name) {
       response.status(400)
       return response
     }
 
     const userService = new UserService()
-    const user = await userService.create(userName,email, password)
+    const user = await userService.create(user_name,email, password)
 
     return response.redirect().toRoute('users.show', { id: user.id })
   }

@@ -34,6 +34,7 @@ export default class UsersController {
   public async store({ request, response }: HttpContextContract) {
     const email = request.input('email', undefined)
     const password = request.input('password', undefined)
+    const user_name = request.input('user_name', undefined)
 
     if (!email || !password) {
       response.status(400)
@@ -41,7 +42,7 @@ export default class UsersController {
     }
 
     const userService = new UserService()
-    const user = await userService.create(email, password)
+    const user = await userService.create(user_name,email, password)
 
     return user
   }
