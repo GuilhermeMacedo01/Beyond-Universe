@@ -13,7 +13,7 @@ export default class Post extends BaseModel {
   public title: string
 
   @column()
-  public userId: number
+  public userId: string
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User> 

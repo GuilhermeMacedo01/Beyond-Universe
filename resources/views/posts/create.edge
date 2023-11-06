@@ -1,7 +1,7 @@
 @layout('layout/main')
 
 @section('home')
-  <form action="{{ route('posts.store') }}" method="POST">
+  <form action="{{ route('posts.store',{id: auth.user.id }) }}" method="POST">
 
     <div>
       @!form.legend({ name: 'Título'})

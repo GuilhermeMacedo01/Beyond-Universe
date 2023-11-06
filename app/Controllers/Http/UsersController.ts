@@ -1,6 +1,7 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
 import UserService from 'App/Services/UserService'
+import { v4 as uuidv4 } from 'uuid'
 
 export default class UsersController {
   public async create({ view }: HttpContextContract) {
@@ -19,10 +20,11 @@ export default class UsersController {
       return response
     }
 
+    const id = uuidv4()
     const userService = new UserService()
-    const user = await userService.create(user_name,email, password)
+    const user = await userService.create(id,user_name,email, password)
 
-    return response.redirect().toRoute('users.show', { id: user.id })
+    return response.redirect().toRoute('sessions.create')
   }
 
   public async show({ params, view }: HttpContextContract) {
