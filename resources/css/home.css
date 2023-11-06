@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-image: url(/public/img/stars.jpg);
+}
+
+
+.cor {
+    background-color: white;
+}
+
+/* Css do Navbar */
+
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    height: 10  0px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+}
+
+.logo {
+    flex: 30%;
+    margin-left: 10%;
+    text-align: left;
+}
+
+.logo a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #181A40;
+    font-family: Oswald;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.logo h1:hover {
+    color:#A6039B;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+}
+
+.logo img:hover {
+    filter: grayscale(0.2);
+}
+
+.menu {
+    flex: 60%;
+    text-align: end;
+    padding: 20px;
+}
+
+.menu a, .dropbtn {
+    text-decoration: none;
+    color: #181A40;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding: 14px 16px;
+}
+
+.menu a:hover {
+    color: #A6039B;
+    border-top: 4px solid #181A40;
+}
+
+#botao {
+    gap: 10px;
+    color: white;
+    margin-right: 10%;
+    margin-left: 5%;
+    border-radius: 10px;
+    background: #A6039B;
+    padding: 10px 25px;
+}
+
+#botao:hover {
+    border: none;
+    background-color: #8A1B8C;
+}
+
+.dropdown{
+    display: inline-block;
+    margin-right: 10%;
+    margin-left: 5%;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background: #FEFEFE;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown-content a{
+    color: #181A40;
+    display: block;
+    text-align: left;
+    border: 1px solid lightgray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.dropdown-content:hover a{
+    border-top: 1px solid #181A40;
+    background-color: #181A40;
+    color: white;
+}  
+
+/* Css do Rodapé */
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    border-top: 5px solid #A6039B;
+    margin-bottom: 50px;
+}
+
+.rodape h3 {
+    color: #181A40;
+    font-family: 'Oswald';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rodape-logo {
+    text-align: center;
+}
+
+.rodape-logo h3{
+    margin: 0;
+    padding: 0;
+    color: #F2BC1B;
+    font-family: 'Oswald';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rodape-logo b {
+    margin: 0;
+    padding: 0;
+    color: #181A40;
+    font-family: 'Oswald';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rodape img {
+    margin-top: 50px;
+    max-width: 200px;  
+}
+
+.rodape ul {
+    flex-direction: column;   
+}
+
+.rodape a, p{
+    flex-direction: column;
+    list-style-type: none;
+    color: #A6039B;
+    text-decoration: none;
+    font-family: 'Oswald';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rodape a:hover {
+    color: #8A1B8C;
+}
+
+.rodape-link {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Css do Headline */
+
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-left: 12rem;
+    margin-right: 2rem;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.headline {
+    flex: 50%;
+}
+
+.headline h2 {
+    font-weight: 900;
+    font-size: 32px;
+    color: #F2BC1B;
+    padding: 0;
+    margin: 0;
+}
+
+.headline p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #737373;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.contact-btn {
+    gap: 10px;
+    color: white;
+    margin-right: 10%;
+    border-radius: 10px;
+    background: #A6039B;
+    padding: 13px 72px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Roboto', normal;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.contact-btn:hover {
+    background-color: #8A1B8C;
+}
+
+.img-headline {
+    justify-content: center;
+    align-items: center;
+    flex: 50%;
+    text-align: center;
+}
+
+/* Css do Nosso Sistema Solar */
+
+.sistema-solar{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.area-cards {
+    height: auto;
+    margin-bottom: 60px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+    padding: 20px;
+    padding-bottom: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: auto;
+    width: 369px;
+}
+
+.card img {
+    max-width: 75%;
+    padding: 0;
+    margin: 0;
+}
+
+.card h3 {
+    padding: 0;
+    margin: 0;
+    color: #181A40;
+    font-family: 'Oswald';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.card p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 50px;
+    color: #737373;
+    text-align: center;
+    font-family: 'Oswald';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.card a {
+    color: white;
+    border-radius: 10px;
+    background: #A6039B;
+    padding: 20px 25px;
+    text-decoration: none;
+    font-family: 'Roboto', normal;
+}
+
+.card a:hover {
+    background-color: #8A1B8C;
+}
+
+.parallax-text {
+    display: flex;
+    justify-content: center;
+}
+
+.parallax-text h2{
+    color: #F2BC1B;
+    font-family: 'Oswald';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}

@@ -1,9 +1,45 @@
-@layout('layout/simple')
-@set('title', 'Bem-vindo')
-@set('subtitle', "")
+@layout('layout/main')
 
 @section('home')
-<form action="{{ route('sessions.store') }}" method="POST">
+@entryPointStyles('login')
+
+<section class="container">
+    <form action="{{ route('sessions.store') }}" method="POST">
+        <h1>Entre com a sua conta</h1>
+        <hr>
+        <div class="container-box">
+            <form action="#">
+                <div class="container-label">
+                    <label for="email">Digite seu email</label>
+                    <input type="email" name="email" id="email" required="">
+                </div>
+                <div class="container-label">
+                    <label for="password">Digite a sua senha</label>
+                    <input type="password" name="password" id="password" required="">
+                </div>
+                <div class="container-text">
+                    <div class="container-check">
+                        <div>
+                            <input id="remember" aria-describedby="remember" type="checkbox">
+                        </div>
+                        <div>
+                            <label for="remember">Lembrar de mim</label>
+                        </div>
+                    </div>
+                    <a href="#">Esqueci a senha</a>
+                </div>
+                <button type="submit" class="btn">Logar</button>
+                <div class="container-paragraph">
+                    <p>Não possui conta ? <a href="{{ route('users.create')}}">Se inscrever</a></p>
+                </div>
+            </form>
+        </div>
+    </form>
+</section>
+
+@end
+
+{{--  <form action="{{ route('sessions.store') }}" method="POST">
 
   <section class="bg-gray-50 dark:bg-gray-900">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -45,5 +81,4 @@
         </div>
     </div>
   </section>
-</form>
-@end
+</form>  --}}
