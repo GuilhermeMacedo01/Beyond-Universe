@@ -7,7 +7,6 @@
 <section class="container">
     <h1>Usuários</h1>
     <hr>
-    <h2>Nome de Usuário | E-mail</h2>
     <div>
         @each(user in users)
             <ul>
@@ -18,7 +17,6 @@
                 </div>
             </ul>
         @end
-        <a class="btn" href="{{ route('users.create') }}">Criar um novo usuário</a>
     </div>
 </section>
 
