@@ -7,6 +7,31 @@
       "js": [
         "http://localhost:8080/assets/app.js"
       ]
+    },
+    "home": {
+      "js": [
+        "http://localhost:8080/assets/home.js"
+      ]
+    },
+    "login": {
+      "js": [
+        "http://localhost:8080/assets/login.js"
+      ]
+    },
+    "criarconta": {
+      "js": [
+        "http://localhost:8080/assets/criarconta.js"
+      ]
+    },
+    "criarpost": {
+      "js": [
+        "http://localhost:8080/assets/criarpost.js"
+      ]
+    },
+    "post": {
+      "js": [
+        "http://localhost:8080/assets/post.js"
+      ]
     }
   }
 }
