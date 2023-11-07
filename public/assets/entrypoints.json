@@ -9,26 +9,41 @@
       ]
     },
     "home": {
+      "css": [
+        "http://localhost:8080/assets/home.css"
+      ],
       "js": [
         "http://localhost:8080/assets/home.js"
       ]
     },
     "login": {
+      "css": [
+        "http://localhost:8080/assets/login.css"
+      ],
       "js": [
         "http://localhost:8080/assets/login.js"
       ]
     },
     "criarconta": {
+      "css": [
+        "http://localhost:8080/assets/criarconta.css"
+      ],
       "js": [
         "http://localhost:8080/assets/criarconta.js"
       ]
     },
     "criarpost": {
+      "css": [
+        "http://localhost:8080/assets/criarpost.css"
+      ],
       "js": [
         "http://localhost:8080/assets/criarpost.js"
       ]
     },
     "post": {
+      "css": [
+        "http://localhost:8080/assets/post.css"
+      ],
       "js": [
         "http://localhost:8080/assets/post.js"
       ]

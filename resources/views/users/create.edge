@@ -1,8 +1,52 @@
-@layout('layout/simple')
-
+@layout('layout/main')
 
 @section('home')
-<section class="bg-gray-50 dark:bg-gray-900">
+@entryPointStyles('criarconta')
+
+<section class="container">
+    <form action="{{ route('users.store') }}" method="POST">
+        <h1>Crie sua conta</h1>
+        <p id="paragraph-head">Preencha o formulário abaixo para criar a sua conta grátis.</p>
+        <hr>
+        <div class="container-box">
+            <div class="container-label">
+                <label for="user_name">Digite um nome de usuário</label>
+                <input type="user_name" name="user_name" id="user_name" required="" maxlength="20">
+            </div>
+            <div class="container-label">
+                <label for="email">Digite seu email</label>
+                <input type="email" name="email" id="email" required="">
+            </div>
+            <div class="container-label">
+                <label for="password">Digite uma senha</label>
+                <input type="password" name="password" id="password" required="">
+            </div>
+            <div class="container-label">
+                <label for="confirm_password">Confirmar sua senha</label>
+                <input type="password" name="confirm_password" id="confirm_password" required="">
+            </div>
+            
+            <div class="container-text">
+                <div class="container-check">
+                    <div>
+                        <input id="terms" aria-describedby="terms" type="checkbox" required="">
+                    </div>
+                    <div>
+                        <label for="terms">Aceite os termos de uso <a href="#">Termos e Condições</a></label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn">Criar a conta</button>
+            <div class="container-paragraph">
+                <p>Possui conta? <a href="{{ route('sessions.create')}}">Logar aqui</a></p>
+            </div>
+        </div>
+    </form>
+</section>
+
+@endsection
+
+{{--  <section class="bg-gray-50 dark:bg-gray-900">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="{{ route ('index') }}" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <img class="w-8 h-8 mr-2" src="https://i.pinimg.com/564x/ed/fb/3d/edfb3d96fe17bfeadbeeee77e308a897.jpg" alt="logo">
@@ -47,6 +91,4 @@
             </div>
         </div>
     </div>
-  </section>
-
-@endsection
+  </section>  --}}
