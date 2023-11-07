@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-
+import { v4 as uuidv4 } from 'uuid'
 import User from 'App/Models/User'
 import UserService from 'App/Services/UserService'
 
@@ -32,6 +32,7 @@ export default class UsersController {
   }
 
   public async store({ request, response }: HttpContextContract) {
+   
     const email = request.input('email', undefined)
     const password = request.input('password', undefined)
     const user_name = request.input('user_name', undefined)
@@ -41,8 +42,9 @@ export default class UsersController {
       return response
     }
 
+    const id = uuidv4()
     const userService = new UserService()
-    const user = await userService.create(user_name,email, password)
+    const user = await userService.create(id,user_name,email, password)
 
     return user
   }

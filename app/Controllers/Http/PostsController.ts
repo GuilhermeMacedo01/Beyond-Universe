@@ -10,16 +10,25 @@ export default class PostsController {
     return view.render('posts/create')
   }
 
-  public async store({ request, response }: HttpContextContract) {
-    const payload = await request.validate(CreatePostValidator)
+  public async store({ auth,request, response }: HttpContextContract) {
+   
 
     //TODO: Pegar o usuario logado
-    const user = await User.findOrFail(1)
+    const payload = await request.validate(CreatePostValidator)
 
-    const postService = new PostService()
-    const post = await postService.create(user, payload)
+    // Obtenha o usuário logado usando o middleware 'auth'
+    const user = auth.user as User | null;
 
-    return response.redirect().toRoute('posts.show', { id: post.id })
+    if (!user) {
+      // Trate o caso em que o usuário não está autenticado
+      return response.status(401).send('Usuário não autenticado');
+    }
+
+    // Use o usuário para criar o post
+    const postService = new PostService();
+    const post = await postService.create(user, payload);
+
+    return response.redirect().toRoute('posts.show', { id: post.id });
   }
 
   public async show({ params, view }: HttpContextContract) {
