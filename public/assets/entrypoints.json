@@ -47,6 +47,38 @@
       "js": [
         "http://localhost:8080/assets/post.js"
       ]
+    },
+    "perfil": {
+      "css": [
+        "http://localhost:8080/assets/perfil.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/perfil.js"
+      ]
+    },
+    "atualizarPerfil": {
+      "css": [
+        "http://localhost:8080/assets/atualizarPerfil.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/atualizarPerfil.js"
+      ]
+    },
+    "usuarios": {
+      "css": [
+        "http://localhost:8080/assets/usuarios.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/usuarios.js"
+      ]
+    },
+    "posts": {
+      "css": [
+        "http://localhost:8080/assets/posts.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/posts.js"
+      ]
     }
   }
 }

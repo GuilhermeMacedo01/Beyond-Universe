@@ -11,5 +11,13 @@
   "assets/criarpost.js": "http://localhost:8080/assets/criarpost.js",
   "assets/post.css": "http://localhost:8080/assets/post.css",
   "assets/post.js": "http://localhost:8080/assets/post.js",
+  "assets/perfil.css": "http://localhost:8080/assets/perfil.css",
+  "assets/perfil.js": "http://localhost:8080/assets/perfil.js",
+  "assets/atualizarPerfil.css": "http://localhost:8080/assets/atualizarPerfil.css",
+  "assets/atualizarPerfil.js": "http://localhost:8080/assets/atualizarPerfil.js",
+  "assets/usuarios.css": "http://localhost:8080/assets/usuarios.css",
+  "assets/usuarios.js": "http://localhost:8080/assets/usuarios.js",
+  "assets/posts.css": "http://localhost:8080/assets/posts.css",
+  "assets/posts.js": "http://localhost:8080/assets/posts.js",
   "assets/images/stars.jpg": "http://localhost:8080/assets/images/stars.7e3210a9.jpg"
 }

@@ -1,7 +1,25 @@
 @layout('layout/main')
 
 @section('home')
-<div>
+@entryPointStyles('posts')
+
+<section class="container">
+  <h1>Principais Posts</h1>
+  <hr>
+  <div class="area-cards">
+    @each (post in posts)
+    <div class="card">
+        <h3>{{post.title}}</h3>
+        <p>{{post.content}}</p>
+        <a href="{{ route('posts.show',{id:post.id}) }}">Saiba Mais</a>
+    </div>
+    @end
+  </div>
+</section>
+
+@end
+
+{{--  <div>
     <span>Lista de Posts:</span>
 </div>
 <div>
@@ -13,5 +31,4 @@
     </li>
     @end
 </ul>
-</div>
-@end
+</div>  --}}

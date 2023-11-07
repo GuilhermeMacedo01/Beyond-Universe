@@ -58,6 +58,10 @@ Encore.addEntry('login', './resources/css/login.css')
 Encore.addEntry('criarconta', './resources/css/criarconta.css')
 Encore.addEntry('criarpost', './resources/css/criarpost.css')
 Encore.addEntry('post', './resources/css/post.css')
+Encore.addEntry('perfil', './resources/css/perfil.css')
+Encore.addEntry('atualizarPerfil', './resources/css/atualizarPerfil.css')
+Encore.addEntry('usuarios', './resources/css/usuarios.css')
+Encore.addEntry('posts', './resources/css/posts.css')
 
 /*
 |--------------------------------------------------------------------------

@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-image: url(/public/img/stars.jpg);
+}
+
+
+.cor {
+    background-color: white;
+}
+
+/* Css do Navbar */
+
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    height: 10  0px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    flex: 30%;
+    margin-left: 10%;
+    text-align: left;
+}
+
+.logo a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #181A40;
+    font-family: Oswald;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.logo h1:hover {
+    color:#A6039B;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+}
+
+.logo img:hover {
+    filter: grayscale(0.2);
+}
+
+.menu {
+    flex: 60%;
+    text-align: end;
+    padding: 20px;
+}
+
+.menu a, .dropbtn {
+    text-decoration: none;
+    color: #181A40;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding: 14px 16px;
+}
+
+.menu a:hover {
+    color: #A6039B;
+    border-top: 4px solid #181A40;
+}
+
+#botao {
+    gap: 10px;
+    color: white;
+    margin-right: 10%;
+    margin-left: 5%;
+    border-radius: 10px;
+    background: #A6039B;
+    padding: 10px 25px;
+}
+
+#botao:hover {
+    border: none;
+    background-color: #8A1B8C;
+}
+
+.dropdown{
+    display: inline-block;
+    margin-right: 10%;
+    margin-left: 5%;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background: #FEFEFE;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown-content a{
+    color: #181A40;
+    display: block;
+    text-align: left;
+    border: 1px solid lightgray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.dropdown-content:hover a{
+    border-top: 1px solid #181A40;
+    background-color: #181A40;
+    color: white;
+}  
+
+/* Css do Rodapé */
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    border-top: 5px solid #A6039B;
+    margin-bottom: 50px;
+}
+
+.rodape h3 {
+    color: #181A40;
+    font-family: 'Oswald';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rodape-logo {
+    text-align: center;
+}
+
+.rodape-logo h3{
+    margin: 0;
+    padding: 0;
+    color: #F2BC1B;
+    font-family: 'Oswald';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rodape-logo b {
+    margin: 0;
+    padding: 0;
+    color: #181A40;
+    font-family: 'Oswald';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rodape img {
+    margin-top: 50px;
+    max-width: 200px;  
+}
+
+.rodape ul {
+    flex-direction: column;   
+}
+
+.rodape a, .rodape p{
+    flex-direction: column;
+    list-style-type: none;
+    color: #A6039B;
+    text-decoration: none;
+    font-family: 'Oswald';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rodape a:hover {
+    color: #8A1B8C;
+}
+
+.rodape-link {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fazendo a box */
+
+.container {
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: white;
+    width: 1200px;
+    height: auto;
+    border-radius: 20px;
+    padding-top: 2px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.container h1 {
+    color: #181A40;
+    font-family: 'Oswald';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+.container hr {
+    border: 0.5px solid lightgray;
+}
+
+.container p {
+    padding-left: 90px;
+    padding-right: 90px;
+    margin-bottom: 20px;
+    white-space: pre-line;
+    word-wrap: break-word;
+
+    color: #737373;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.container li {
+    list-style-type: none;
+}
+
+.container-button {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-button a {
+    color: white;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-decoration: none;
+
+    background: #A6039B;
+    border: none;
+    padding: 5px 34px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.container-button a:hover {
+    background-color: #8A1B8C;
+}
+
+.btn {
+    color: white;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-decoration: none;
+
+    background: #A6039B;
+    border: none;
+    padding: 5px 34px;
+    border-radius: 10px;
+    margin-left: 40px;
+}
+
+.btn:hover {
+    background-color: #8A1B8C;
+}

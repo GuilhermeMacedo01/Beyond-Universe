@@ -1,56 +1,25 @@
-@layout('layout/simple')
-
+@layout('layout/main')
 
 @section('home')
-<a href="{{ route ('index') }}" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-    <img class="w-8 h-8 mr-2" src="https://i.pinimg.com/564x/ed/fb/3d/edfb3d96fe17bfeadbeeee77e308a897.jpg" alt="logo">
-    Empresa.Inc    
-</a>
-<body>
-    <p>
-        Usuários
-    </p>
+@entryPointStyles('usuarios')
 
+
+<section class="container">
+    <h1>Usuários</h1>
+    <hr>
+    <h2>Nome de Usuário | E-mail</h2>
     <div>
-        <a href="{{ route('users.create') }}">Criar</a>
+        @each(user in users)
+            <ul>
+                <li><p>{{ user.user_name }} | {{ user.email }}</p></li>
+                <div class="container-button">
+                    <a href="{{ route('users.show', { id: user.id }) }}">show</a>
+                    <a href="{{ route('users.update', { id: user.id }) }}">edit</a>
+                </div>
+            </ul>
+        @end
+        <a class="btn" href="{{ route('users.create') }}">Criar um novo usuário</a>
     </div>
-
-    <table>
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-            @each(user in users)
-                <tr>
-                    <td>
-                      
-                            {{ user.email }}
-                       
-                    </td>
-                    <td>
-                        <span>
-                            <a href="{{ route('users.show', { id: user.id }) }}">
-                                show
-                            </a>
-                        </span>
-                        <span>
-                            <a href="{{ route('users.update', { id: user.id }) }}">edit</a>
-                        </span>
-                        <span>
-                            delete
-                        </span>
-                    </td>
-                </tr>
-            @end
-          </tr>
-        </tbody>
-    </table>
-
-    
-
-</body>
+</section>
 
 @endsection
