@@ -55,7 +55,9 @@ Encore.setPublicPath('/assets')
 Encore.addEntry('app', './resources/js/app.js')
 Encore.addEntry('home', './resources/css/home.css')
 Encore.addEntry('login', './resources/css/login.css')
-
+Encore.addEntry('criarconta', './resources/css/criarconta.css')
+Encore.addEntry('criarpost', './resources/css/criarpost.css')
+Encore.addEntry('post', './resources/css/post.css')
 
 /*
 |--------------------------------------------------------------------------

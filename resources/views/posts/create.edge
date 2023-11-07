@@ -1,25 +1,50 @@
 @layout('layout/main')
 
 @section('home')
+@entryPointStyles('criarpost')
+
+<section class="container">
   <form action="{{ route('posts.store') }}" method="POST">
-
-    <div>
-      @!form.legend({ name: 'Título'})
-      @!form.input({ name: 'title', type: 'text' })
-    </div>
-
-    <div>
-      @!form.legend({ name: 'Conteúdo'})
-      @!form.input({ name: 'content', type: 'text' })
-    </div>
-
-    <div>
-      @form.button()
-        Salvar
-      @end
-    </div>
-
-
+      <h1>Crie seu Post</h1>
+      <hr>
+      <div class="container-box">
+          <div class="container-label">
+              <label>Escreva o título do Artigo</label>
+              @!form.input({ name: 'title', type: 'text' })
+          </div>
+          {{--  <div class="container-label">
+              <label for="email">Escreva um resumo do seu Artigo</label>
+              <input type="email" name="email" id="email" required="">
+          </div>  --}}
+          <div class="container-label">
+              <label>Escreva o conteúdo do seu Post</label>
+              <div class="container-textarea">
+                {{--  @!form.input({ name: 'content', type: 'text' })  --}}
+                <textarea name="content"></textarea>
+              </div>
+          </div>
+          <button type="submit" class="btn">Publicar</button>
+      </div>
   </form>
+</section>
 
 @endsection
+
+{{--  <form action="{{ route('posts.store') }}" method="POST">
+
+  <div>
+    @!form.legend({ name: 'Título'})
+    @!form.input({ name: 'title', type: 'text' })
+  </div>
+
+  <div>
+    @!form.legend({ name: 'Conteúdo'})
+    @!form.input({ name: 'content', type: 'text' })
+  </div>
+
+  <div>
+    @form.button()
+      Salvar
+    @end
+  </div>
+</form>  --}}

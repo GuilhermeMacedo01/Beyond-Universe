@@ -231,6 +231,10 @@ main {
     font-weight: 400;
 }
 
+.container hr {
+    border: 0.5px solid lightgray;
+}
+
 .container-box {
     display: flex;
     flex-direction: column;
@@ -258,8 +262,21 @@ main {
     flex-direction: row;
     display: flex;
     justify-content: space-between;
-    gap: 270px;
+    gap: 200px;
     margin-top: 20px;
+
+    color: #181A40;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.container-text a{
+    text-decoration: none;
+    color: #181A40;
 }
 
 .container-check {
@@ -287,8 +304,23 @@ main {
     width: 500px;
     height: 50px;
     border-radius: 10px;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
     margin-bottom: 20px;
+    padding-left: 5px;
+
+    color: #181A40;
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+#remember {
+    accent-color: #A6039B;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
 }
 
 .btn {

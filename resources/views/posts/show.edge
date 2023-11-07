@@ -1,19 +1,18 @@
 @layout('layout/main')
 
 @section('home')
+@entryPointStyles('post')
 
-
+<section class="container">
   <div>
-    <p>Título:</p>
-    {{ post.title }}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.user.user_name }}</p>
+    <hr>
   </div>
 
   <div>
-    <p>Conteúdo:</p>
-    {{ post.content }}
+    <p>{{ post.content }}</p>
   </div>
+</section>
 
-  <div>
-    Usuário:{{ post.user.email }}
-  </div>
 @end
