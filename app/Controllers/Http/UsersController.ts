@@ -39,8 +39,13 @@ export default class UsersController {
     return view.render('users/update', { user: user })
   }
 
-  public async patch({ params, request, response }: HttpContextContract) {
-    const user = await User.findOrFail(params.id)
+  public async patch({ auth,params, request, response }: HttpContextContract) {
+    
+    const user = auth.user as User | null;
+    if (!user) {
+      // Trate o caso em que o usuário não está autenticado
+      return response.status(401).send('Usuário não autenticado');
+    }
 
     const email = request.input('email', undefined)
     const password = request.input('password', undefined)
