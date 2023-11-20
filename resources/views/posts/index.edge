@@ -1,22 +1,34 @@
 @layout('layout/main')
 
 @section('home')
-<div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Lista de Posts:</span>
+@entryPointStyles('posts')
+
+<section class="container">
+  <h1>Principais Posts</h1>
+  <hr>
+  <div class="area-cards">
+    @each (post in posts)
+    <div class="card">
+        <h3>{{post.title}}</h3>
+        <p>{{post.content}}</p>
+        <a href="{{ route('posts.show',{id:post.id}) }}">Saiba Mais</a>
+    </div>
+    @end
+  </div>
+</section>
+
+@end
+
+{{--  <div>
+    <span>Lista de Posts:</span>
 </div>
-<div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+<div>
   <ul>
     @each (post in posts)
     <li>
-        <a href="{{ route('posts.show',{id:post.id}) }}" class="text-blue-900 dark:text-blue hover:bg-blue-50"> {{post.title}}</a>
+        <a href="{{ route('posts.show',{id:post.id}) }}"> {{post.title}}</a>
            id:({{post.id}})
     </li>
     @end
 </ul>
-</div>
-
-<div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-  <a href="{{ route('posts.create') }}" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Criar Post</a>
-
-</div>
-@end
+</div>  --}}

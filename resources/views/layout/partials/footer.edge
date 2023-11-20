@@ -1,21 +1,22 @@
-
-<footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://www.linkedin.com/in/guilherme-macedo-de-morais/" class="hover:underline">Empresa.Inc</a>. All Rights Reserved.
-    </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-        <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
-        </li>
-        <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-        </li>
-        <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
-        </li>
-        <li>
-            <a href="#" class="hover:underline">Contact</a>
-        </li>
-    </ul>
+<footer class="rodape" style="background-color: white;">
+    <div class="rodape-link">
+        <h3>Redes Sociais</h3>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+    </div>
+    <div class="rodape-logo">
+        <img src="/img/Logo.png">
+        <h3>BeyondUniverse</h3>
+        <b>© 2023 OsCrias.Inc. All Rights Reserved.</b>
+    </div>
+    <div class="rodape-link">
+        <h3>Mais sobre nós</h3>
+        <a href="{{ route('posts.create')}}">Crie seu Post</a>
+        @if(!auth.isLoggedIn)
+        <a href="{{ route('users.create')}}">Crie sua Conta</a>
+        @end
+        <h3>Fale Conosco</h3>
+        <p style="margin: 0; padding: 0;">beyonduniverse@gmail.com</p>
     </div>
 </footer>
