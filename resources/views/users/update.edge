@@ -1,40 +1,27 @@
-@layout('layout/simple')
-
+@layout('layout/main')
 
 @section('home')
-<body>
-    <a href="{{ route ('index') }}" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-        <img class="w-8 h-8 mr-2" src="https://i.pinimg.com/564x/ed/fb/3d/edfb3d96fe17bfeadbeeee77e308a897.jpg" alt="logo">
-        Empresa.Inc    
-    </a>
-    <p class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-        Atualize o usuário
-    </p>
-    <form 
-        action="{{ route('users.patch', { id: user.id }, { qs: { _method: 'PATCH' }}) }}" method="POST">
- 
-        <div>
-            <label>
-                Nome de usuário:
-            </label>
-            <input type="user_name" name="user_name" placeholder="user_name" value="{{ user.user_name }}" />
-        </div>
-        <div>
-            <label>
-                Email:
-            </label>
-            <input type="email" name="email" placeholder="Email" value="{{ user.email }}" />
-        </div>
-        <div>
-            <label>
-                Senha:
-            </label>
-            <input type="password" name="password" placeholder="Senha" />
-        </div>
-        <button type="submit">
-            Atualizar
-        </button>
-    </form>
+@entryPointStyles('atualizarPerfil')
 
-</body>
+<section class="container">
+    <form action="{{ route('users.patch', { id: user.id }, { qs: { _method: 'PATCH' }}) }}" method="PATCH">
+        <h1>Atualize seu perfil</h1>
+        <hr>
+        <div class="container-box">
+            <div class="container-label">
+                <label>Nome de usuário</label>
+                <input type="user_name" name="user_name" value="{{ user.user_name }}" />
+            </div>
+            <div class="container-label">
+                <label>Email</label>
+                <input type="email" name="email" value="{{ user.email }}" />
+            </div>
+            <div class="container-label">
+                <label>Confirme a sua senha</label>
+                <input type="password" name="password"/>
+            </div>
+            <button type="submit" class="btn">Atualizar</button>
+        </div>
+    </form>
+</section>
 @endsection

@@ -34,7 +34,7 @@ export default class CreatePostValidator extends BaseValidator {
     ]),
     content: schema.string([
       rules.minLength(5),
-      rules.maxLength(200),
+      rules.maxLength(100000),
       rules.trim(),
     ]),
   })

@@ -1,14 +1,59 @@
 @layout('layout/main')
 
 @section('home')
+@entryPointStyles('home')
 
-  <div class="relative isolate px-6 pt-14 lg:px-8">
-    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-      <div class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Bem-vindo à Empresa.Inc</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Resumo da empresa/site.</p>
-      </div>
+<div class="cor">
+    <div class="header">
+        <div class="headline">
+            <h2 style="letter-spacing: 12px; color: #181A40; font-weight: 300;">Você chegou ao espaço!</h2>
+            <h2 style="font-size: 96px; font-family: 'Oswald';">BeyondUniverse </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat
+                nulla pariatur. </p>
+            <a href="{{ route('posts.create')}}" class="contact-btn">Crie seu post!</a>
+        </div>
+
+        <div class="img-headline">
+            <img style="max-width: 90%;" src="/img/astronaut.png">
+        </div>
     </div>
-  </div>
 </div>
+
+<div class="sistema-solar">
+    <div class="parallax-text">
+        <h2>Nosso Sistema Solar</h2>
+    </div>
+
+    <div class="area-cards">
+        <div class="card">
+            <img src="/img/sun.png">
+            <h3>Sol</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua.</p>
+            <a href="#">Saiba Mais</a>
+        </div>
+        <div class="card">
+            <img src="/img/mercury.png">
+            <h3>Mercúrio</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua.</p>
+            <a href="#">Saiba Mais</a>
+        </div>
+        <div class="card">
+            <img src="/img/venus.png">
+            <h3>Vênus</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua.</p>
+            <a href="#">Saiba Mais</a>
+        </div>
+    </div>
+</div>
+
 @endsection

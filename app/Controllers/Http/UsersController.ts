@@ -40,7 +40,6 @@ export default class UsersController {
   }
 
   public async patch({ auth,params, request, response }: HttpContextContract) {
-    
     const user = auth.user as User | null;
     if (!user) {
       // Trate o caso em que o usuário não está autenticado

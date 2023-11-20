@@ -1,19 +1,15 @@
-@layout('layout/simple')
+@layout('layout/main')
 
 
 @section('home')
-    <a href="{{ route ('index') }}" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-        <img class="w-8 h-8 mr-2" src="https://i.pinimg.com/564x/ed/fb/3d/edfb3d96fe17bfeadbeeee77e308a897.jpg" alt="logo">
-        Empresa.Inc    
-    </a>
-<body>
-    <div>
-        <label>
-            Email:
-        </label>
-        <span>
-            {{ user.email }}
-        </span>
-    </div>
-</body>
+@entryPointStyles('perfil')
+
+<div class="container">
+    <img src="/img/sun.png" alt="">
+    <h1>{{ user.user_name }}</h1>
+    <hr>
+    <h2>Bio</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dicta rerum, soluta quis quisquam fuga! Fuga natus architecto excepturi expedita possimus numquam ratione! Quas assumenda voluptas harum. Explicabo, cum hic!</p>
+    <a class="container-button" href="{{ route('users.update', { id: user.id }) }}">Editar Perfil</a>
+</div>
 @endsection
