@@ -52,3 +52,6 @@ Route.group(() => {
     .prefix('/posts')
     .middleware('auth')
     .as('posts')
+
+
+Route.get('/file/:id', 'FilesController.show').as('files.show')

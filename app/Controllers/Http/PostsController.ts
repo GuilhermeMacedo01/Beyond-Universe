@@ -16,6 +16,8 @@ export default class PostsController {
     //TODO: Pegar o usuario logado
     const payload = await request.validate(CreatePostValidator)
 
+    
+
     // Obtenha o usuário logado usando o middleware 'auth'
     const user = auth.user as User | null;
 
