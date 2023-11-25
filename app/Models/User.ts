@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { BaseModel, HasMany,beforeSave, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, HasMany,beforeSave, column, hasMany, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
 import Post from 'App/Models/Post'
 
 export default class User extends BaseModel {
@@ -22,6 +22,10 @@ export default class User extends BaseModel {
   @hasMany(() => Post)
   public posts: HasMany<typeof Post>
 
+  @manyToMany(() => Post, {
+    pivotTable: 'user_post',
+  })
+  public likedPosts: ManyToMany<typeof Post>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

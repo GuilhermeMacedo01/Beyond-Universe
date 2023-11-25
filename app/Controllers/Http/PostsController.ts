@@ -51,7 +51,14 @@ export default class PostsController {
     return view.render('posts/index', {posts: posts})
   }
 
-  public async like({}: HttpContextContract) {
-    console.log('LIKE')
+  public async like({ params }: HttpContextContract) {
+    const post = await Post.findOrFail(params.id)
+
+    const user = await User.findOrFail(1)
+    const service = new PostService()
+    const liked = await service.like(user, post)
+
+    return { id: post.id, liked: liked }
   }
+  
 }
