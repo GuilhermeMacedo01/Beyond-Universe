@@ -50,4 +50,8 @@ export default class PostsController {
    
     return view.render('posts/index', {posts: posts})
   }
+
+  public async like({}: HttpContextContract) {
+    console.log('LIKE')
+  }
 }
