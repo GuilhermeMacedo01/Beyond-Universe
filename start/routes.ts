@@ -38,6 +38,8 @@ Route.delete('/user/:id', 'UsersController.destroy').as('users.destroy')
 Route.get('/edit/:id', 'UsersController.update').as('users.update')
 Route.post('/edit/:id', 'PostsController.patch').as('users.patch')
 Route.get('/user/:id', 'UsersController.show') .as('users.show')
+Route.get('/users/:user_name/posts', 'PostsController.indexByUser').as('users.posts')
+Route.get('/users/:user_name/favoritos', 'PostsController.userLiked').as('users.fav')
 
 
  
@@ -49,6 +51,7 @@ Route.group(() => {
     Route.get('/:id/update', 'PostsController.update').as('update')
     Route.patch('/:id', 'PostsController.patch').as('patch')
     Route.get('/:id', 'PostsController.show').as('show')
+    Route.delete('/:id', 'PostsController.delete').as('delete')
     })
     .prefix('/posts')
     .middleware('auth')

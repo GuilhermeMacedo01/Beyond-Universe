@@ -5,6 +5,11 @@
 
 <section class="container">
   <h1>Principais Posts</h1>
+  
+  <h1>
+  <a href="{{ route('users.posts',{user_name:auth.user.user_name})}}">MEUS POSTS</a>
+  <a href="{{ route('users.fav',{user_name:auth.user.user_name})}}">FAVORITOS</a>
+  </h1>
   <hr>
   <div class="area-cards">
     @each (post in posts)
@@ -13,6 +18,11 @@
         <p>{{post.content}}</p>
         <a href="{{ route('posts.show',{id:post.id}) }}">Saiba Mais</a>
     </div>
+    <form method="POST" action="{{ route('posts.delete', { id: post.id }) }}">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      <button type="submit">Excluir</button>
+    </form>
     @end
   </div>
 </section>

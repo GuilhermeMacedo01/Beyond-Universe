@@ -1,0 +1,31 @@
+@layout('layout/main')
+
+@section('home')
+@entryPointStyles('post')
+  <h1>Posts que você curtiu</h1>
+  <ul>
+    @if(likedPosts.length > 0)
+      @foreach(post in likedPosts)
+        <li>
+          <h2>{{ post.title }}</h2>
+          <p>{{ post.content }}</p>
+          <p>Criado por: {{ post.user.user_name }}</p>
+          <p>Curtido por:
+            @if(post.likedUsers.length > 0)
+              @foreach(user in post.likedUsers)
+                {{ user.user_name }}@if(!$loop.last),@endif
+              @endforeach
+            @else
+              Ninguém curtiu ainda.
+            @endif
+          </p>
+        </li>
+      @endforeach
+    @else
+      <p>Você ainda não curtiu nenhum post.</p>
+    @endif
+  </ul>
+
+
+
+@end

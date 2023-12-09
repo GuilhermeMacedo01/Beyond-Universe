@@ -45,6 +45,10 @@ export default class PostsController {
 
   public async patch({}: HttpContextContract) {}
 
+  public async delete({  }: HttpContextContract) {
+  }
+  
+
   public async index({ view }: HttpContextContract) {
     const posts = await Post.all()
    
@@ -65,11 +69,46 @@ export default class PostsController {
 
  
     const service = new PostService()
+    
   
     const liked = await service.like(user, post)
     console.log(liked)
 
     return { id: post.id, liked: liked }
+  }
+
+  public async indexByUser({ auth, view }: HttpContextContract) {
+    
+    const user = auth.user as User | null;
+    if (!user) {
+      // Trate o caso em que o usuário não está autenticado
+      return "Não achei";
+    }
+
+
+    // Carrega os posts associados a este usuário
+    await user.load('posts')
+
+    return view.render('posts.index', { user, posts: user.posts })
+  }
+  
+
+  public async userLiked({ auth, view, response }: HttpContextContract) {
+
+    const user = auth.user as User | null
+
+    if (!user) {
+      // Trate o caso em que o usuário não está autenticado
+      return response.status(401).send('Usuário não autenticado')
+    }
+  
+    await user.load('likedPosts', (query) => {
+      query.preload('user') // Carrega os usuários que criaram os posts
+      query.preload('likedUsers') // Carrega os usuários que curtiram esses posts
+    })
+    //console.log('Posts curtidos pelo usuário:', user.likedPosts)
+  
+    return view.render('posts.index', { user, posts: user.likedPosts })
   }
   
 }

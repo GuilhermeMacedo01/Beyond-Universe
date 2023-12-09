@@ -4,6 +4,7 @@ import { BaseModel, HasMany,beforeSave, column, hasMany, ManyToMany, manyToMany 
 import Post from 'App/Models/Post'
 
 export default class User extends BaseModel {
+
   @column({ isPrimary: true })
   public id: string
 
@@ -24,9 +25,11 @@ export default class User extends BaseModel {
 
   @manyToMany(() => Post, {
     pivotTable: 'user_post',
+    pivotRelatedForeignKey: 'post_id',
+    pivotForeignKey: 'user_id',
   })
   public likedPosts: ManyToMany<typeof Post>
-
+ 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
