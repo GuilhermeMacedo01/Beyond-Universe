@@ -45,7 +45,21 @@ export default class PostsController {
 
   public async patch({}: HttpContextContract) {}
 
-  public async delete({  }: HttpContextContract) {
+  public async destroy({ params, response }: HttpContextContract) {
+
+    const postId = params.id
+
+    const post = await Post.query().where('id', postId).firstOrFail()
+
+    // Remove os likes relacionados a este post
+    await post.related('likedUsers').detach()
+
+    // Agora, exclui o post
+    await post.delete()
+
+    // Redireciona após a exclusão bem-sucedida
+    return response.redirect().toRoute('posts.index')
+
   }
   
 

@@ -15,10 +15,9 @@
   </div>
 
   <img src="{{ route('files.show', { id: post.coverId }) }}" />
-
-  <form method="POST" action="{{ route('posts.delete', { id: post.id }) }}">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit">Excluir</button>
+ 
+  <form action="{{ '/posts/' + post.id + '?_method=DELETE' }}" method="POST" >
+    <button type="submit" class="btn btn-danger d-block float-right">DELETAR POST</button>
   </form>
 
 
