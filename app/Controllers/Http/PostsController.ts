@@ -51,12 +51,23 @@ export default class PostsController {
     return view.render('posts/index', {posts: posts})
   }
 
-  public async like({ params }: HttpContextContract) {
+  public async like({ auth, params }: HttpContextContract) {
+  
     const post = await Post.findOrFail(params.id)
+    
+    const user = auth.user as User | null;
+    if (!user) {
+      // Trate o caso em que o usuário não está autenticado
+      return "Não achei";
+    }
 
-    const user = await User.findOrFail(1)
+    console.log("chamei")
+
+ 
     const service = new PostService()
+  
     const liked = await service.like(user, post)
+    console.log(liked)
 
     return { id: post.id, liked: liked }
   }
