@@ -10,6 +10,9 @@
     <hr>
     <h2>Bio</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dicta rerum, soluta quis quisquam fuga! Fuga natus architecto excepturi expedita possimus numquam ratione! Quas assumenda voluptas harum. Explicabo, cum hic!</p>
-    <a class="container-button" href="{{ route('users.update', { id: user.id }) }}">Editar Perfil</a>
+    <div class="buttons">
+        <a class="container-button" href="{{ route('users.update', { id: user.id }) }}">Editar Perfil</a>
+        <a class="container-button" href="{{ route('users.posts',{user_name:auth.user.user_name})}}">Meus Posts</a>
+    </div>
 </div>
 @endsection

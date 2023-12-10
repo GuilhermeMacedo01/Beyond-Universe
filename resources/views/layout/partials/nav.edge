@@ -17,7 +17,9 @@
         <div class="dropdown">
             <a href="{{ route('users.show',{id: auth.user.id }) }}" class="dropbtn">{{ auth.user.user_name }}</a>
             <div class="dropdown-content">
-                <a href="{{ route('sessions.delete') }}">Logout</a>
+                <a href="{{ route('users.posts',{user_name:auth.user.user_name})}}">Meus Posts</a>
+                <a href="{{ route('users.fav',{user_name:auth.user.user_name})}}">Posts Favoritos</a>
+                <a class="logout" href="{{ route('sessions.delete') }}">Logout</a>
             </div>  
         </div>  
         @end

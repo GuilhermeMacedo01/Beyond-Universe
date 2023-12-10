@@ -33,12 +33,14 @@ export default class PostsController {
     return response.redirect().toRoute('posts.show', { id: post.id });
   }
 
-  public async show({ params, view }: HttpContextContract) {
+  public async show({ params, view, auth }: HttpContextContract) {
     const post = await Post.findOrFail(params.id)
+    const user = await User.findOrFail(auth.user.id)
+    const liked = await post.liked(user)
 
     await post.load('user')
 
-    return view.render('posts/show', { post: post })
+    return view.render('posts/show', { post: post, liked: liked })
   }
 
   public async update({}: HttpContextContract) {}

@@ -124,11 +124,15 @@ main {
     display: block;
     text-align: left;
     border: 1px solid lightgray;
+
+}
+
+.dropdown-content .logout{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-.dropdown-content:hover a{
+.dropdown-content a:hover{
     border-top: 1px solid #181A40;
     background-color: #181A40;
     color: white;

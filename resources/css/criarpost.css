@@ -123,11 +123,15 @@ main {
     display: block;
     text-align: left;
     border: 1px solid lightgray;
+
+}
+
+.dropdown-content .logout{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-.dropdown-content:hover a{
+.dropdown-content a:hover{
     border-top: 1px solid #181A40;
     background-color: #181A40;
     color: white;
@@ -289,6 +293,27 @@ main {
     font-weight: 300;
     line-height: normal;
     resize: none;
+}
+
+.container-testando legend{
+    text-align: center;
+    color: #181A40;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding-bottom: 15px;
+}
+
+.container-testando input{
+    color: #181A40;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    cursor: pointer;
 }
 
 .btn {

@@ -123,11 +123,15 @@ main {
     display: block;
     text-align: left;
     border: 1px solid lightgray;
+
+}
+
+.dropdown-content .logout{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-.dropdown-content:hover a{
+.dropdown-content a:hover{
     border-top: 1px solid #181A40;
     background-color: #181A40;
     color: white;
@@ -252,4 +256,83 @@ main {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.container-img {
+    display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 660px;
+    max-height: 660px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	filter: contrast(100%);
+	transition: all .5s linear;
+	margin: 0px auto;
+	margin-top: 20px;
+}
+
+.container-img:hover {
+    filter: contrast(100%);
+	transform: scale(0.99);
+    cursor: pointer;
+}
+
+.container-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.container-buttons .botao {
+    color: white;
+    font-family: 'Roboto';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-decoration: none;
+
+    margin-top: 40px;
+    border-radius: 10px;
+    background: #A6039B;
+    border: none;
+    padding: 10px 69px;
+}
+
+.container-buttons .botao:hover {
+    background-color: #8A1B8C;
+    cursor: pointer;
+} 
+
+.container-buttons #svg-like button{
+    background: none;
+    border: none;
+}
+
+.container-buttons #svg-like svg{
+    width: 100px;
+    height: 100px;
+}
+
+.container-buttons #svg-like svg:hover{
+    cursor: pointer;
+}
+
+.container-buttons #svg-dislike button{
+    background: none;
+    border: none;
+}
+
+.container-buttons #svg-dislike svg{
+    width: 100px;
+    height: 100px;
+}
+
+.container-buttons #svg-dislike svg:hover{
+    cursor: pointer;
 }
