@@ -7,13 +7,13 @@
     </div>
     <div class="menu">
         <a href="{{ route('posts.index')}}">Posts</a>
-        <a href="#">Sobre Nós</a>
-        <a href="#">Notícias</a>
         @if(!auth.isLoggedIn)
         <a href="{{ route('sessions.create')}}">Usuários</a>
+        <a href="https://github.com/GuilhermeMacedo01/Beyond-Universe">Sobre o Projeto</a>
         <a href="{{ route('sessions.create') }}" id="botao">Login</a>
         @else
         <a href="{{ route('users.index',{id: auth.user.id }) }}">Usuários</a> 
+        <a href="https://github.com/GuilhermeMacedo01/Beyond-Universe">Sobre o Projeto</a>
         <div class="dropdown">
             <a href="{{ route('users.show',{id: auth.user.id }) }}" class="dropbtn">{{ auth.user.user_name }}</a>
             <div class="dropdown-content">

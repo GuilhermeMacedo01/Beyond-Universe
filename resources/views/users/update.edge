@@ -4,7 +4,7 @@
 @entryPointStyles('atualizarPerfil')
 
 <section class="container">
-    <form action="{{ route('users.patch', { id: user.id }, { qs: { _method: 'PATCH' }}) }}" method="PATCH">
+    <form action="{{ route('users.patch', { id: user.id }, { qs: { _method: 'PATCH' }}) }}" method="POST">
         <h1>Atualize seu perfil</h1>
         <hr>
         <div class="container-box">

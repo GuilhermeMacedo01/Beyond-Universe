@@ -39,18 +39,32 @@ export default class UsersController {
     return view.render('users/update', { user: user })
   }
 
-  public async patch({ auth,params, request, response }: HttpContextContract) {
+  public async patch({ auth, request, response }: HttpContextContract) {
+    
+    console.log("chamei")
     const user = auth.user as User | null;
     if (!user) {
       // Trate o caso em que o usuário não está autenticado
       return response.status(401).send('Usuário não autenticado');
     }
 
+    const { user_name } = request.only(['user_name'])
+
+
     const email = request.input('email', undefined)
     const password = request.input('password', undefined)
 
+
+    // Aplica as atualizações se os campos não estiverem vazios
+    if (user_name) {
+        user.user_name = user_name
+    }
     user.email = email ? email : user.email
     user.password = password ? password : user.password
+
+    console.log(user_name)
+    console.log(email)
+    console.log(password)
 
     await user.save()
 
