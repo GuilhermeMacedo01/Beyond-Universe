@@ -2,82 +2,82 @@
   "entrypoints": {
     "app": {
       "css": [
-        "http://localhost:64942/assets/app.css"
+        "http://localhost:8080/assets/app.css"
       ],
       "js": [
-        "http://localhost:64942/assets/app.js"
+        "http://localhost:8080/assets/app.js"
       ]
     },
     "home": {
       "css": [
-        "http://localhost:64942/assets/home.css"
+        "http://localhost:8080/assets/home.css"
       ],
       "js": [
-        "http://localhost:64942/assets/home.js"
+        "http://localhost:8080/assets/home.js"
       ]
     },
     "login": {
       "css": [
-        "http://localhost:64942/assets/login.css"
+        "http://localhost:8080/assets/login.css"
       ],
       "js": [
-        "http://localhost:64942/assets/login.js"
+        "http://localhost:8080/assets/login.js"
       ]
     },
     "criarconta": {
       "css": [
-        "http://localhost:64942/assets/criarconta.css"
+        "http://localhost:8080/assets/criarconta.css"
       ],
       "js": [
-        "http://localhost:64942/assets/criarconta.js"
+        "http://localhost:8080/assets/criarconta.js"
       ]
     },
     "criarpost": {
       "css": [
-        "http://localhost:64942/assets/criarpost.css"
+        "http://localhost:8080/assets/criarpost.css"
       ],
       "js": [
-        "http://localhost:64942/assets/criarpost.js"
+        "http://localhost:8080/assets/criarpost.js"
       ]
     },
     "post": {
       "css": [
-        "http://localhost:64942/assets/post.css"
+        "http://localhost:8080/assets/post.css"
       ],
       "js": [
-        "http://localhost:64942/assets/post.js"
+        "http://localhost:8080/assets/post.js"
       ]
     },
     "perfil": {
       "css": [
-        "http://localhost:64942/assets/perfil.css"
+        "http://localhost:8080/assets/perfil.css"
       ],
       "js": [
-        "http://localhost:64942/assets/perfil.js"
+        "http://localhost:8080/assets/perfil.js"
       ]
     },
     "atualizarPerfil": {
       "css": [
-        "http://localhost:64942/assets/atualizarPerfil.css"
+        "http://localhost:8080/assets/atualizarPerfil.css"
       ],
       "js": [
-        "http://localhost:64942/assets/atualizarPerfil.js"
+        "http://localhost:8080/assets/atualizarPerfil.js"
       ]
     },
     "usuarios": {
       "css": [
-        "http://localhost:64942/assets/usuarios.css"
+        "http://localhost:8080/assets/usuarios.css"
       ],
       "js": [
-        "http://localhost:64942/assets/usuarios.js"
+        "http://localhost:8080/assets/usuarios.js"
       ]
     },
     "posts": {
       "css": [
-        "http://localhost:64942/assets/posts.css"
+        "http://localhost:8080/assets/posts.css"
       ],
       "js": [
-        "http://localhost:64942/assets/posts.js"
+        "http://localhost:8080/assets/posts.js"
       ]
     }
   }
